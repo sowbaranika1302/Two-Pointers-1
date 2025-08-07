@@ -7,11 +7,14 @@ class Solution:
         res = 0
         l,h = 0,len(height)-1
         while l<h:
-            res = max(res,min(height[l],height[h])*(h-l))
+            w = h-l
             if height[l]<height[h]:
-                l+=1
+                min_h = height[l]
+                l+=1    
             else:
+                min_h = height[h]
                 h-=1
+            res = max(res,min_h*w)
         return res
 
 
